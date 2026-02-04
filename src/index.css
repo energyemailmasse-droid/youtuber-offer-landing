@@ -1,0 +1,554 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  --yt-red: #FF0000;
+  --yt-black: #0F0F0F;
+  --yt-white: #FFFFFF;
+  --yt-light-gray: #F9F9F9;
+  --yt-border: #E5E5E5;
+  --text-primary: #0F0F0F;
+  --text-secondary: #606060;
+  --yt-blue: #065FD4;
+
+  font-family: 'Roboto', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: var(--text-primary);
+  background-color: var(--yt-white);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+  height: 56px;
+  background: rgba(255, 255, 255, 0.98);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-shadow: none; /* YouTube header is often flat or very subtle */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.yt-logo-text {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -1px;
+  color: #212121;
+}
+
+.sign-in-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--yt-blue);
+  border: 1px solid rgba(6, 95, 212, 0.2);
+  padding: 8px 12px;
+  border-radius: 18px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.sign-in-btn:hover {
+  background: rgba(6, 95, 212, 0.1);
+  border-color: rgba(6, 95, 212, 0.1);
+}
+
+/* FAQ Styles */
+.faq-section {
+  padding: 60px 0;
+  background: var(--yt-light-gray);
+  border-top: 1px solid var(--yt-border);
+}
+
+.faq-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.accordion-item {
+  background: #fff;
+  border-bottom: 1px solid var(--yt-border);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.accordion-header {
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.accordion-header:hover {
+  background: #FAFAFA;
+}
+
+.accordion-content {
+  padding: 0 20px 20px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: none;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+
+/* Clean Hero Styles */
+.hero-section {
+  text-align: center;
+  padding: 80px 20px 40px;
+  background: #fff;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  color: var(--yt-black);
+  font-size: 3rem;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.highlight-text {
+  color: var(--yt-black);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.hero-description-box {
+  background: var(--yt-light-gray);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  display: inline-block;
+  text-align: left;
+}
+
+.hero-description {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* YouTube Pill Style Button */
+.cta-button {
+  background: #0F0F0F;
+  /* YouTube Black/High Contrast */
+  color: #fff;
+  padding: 0 24px;
+  height: 48px;
+  line-height: 48px;
+  /* Vertically center text */
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  /* Pill Shape */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: none;
+  transition: background 0.2s ease;
+  cursor: pointer;
+  letter-spacing: 0.1px;
+}
+
+.cta-button:hover {
+  background: #272727;
+  /* Lighter black on hover */
+  transform: none;
+}
+
+.urgency-subtext {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Clean Steps Styles (Vertical List) */
+.steps-wrapper {
+  padding: 20px 20px 60px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.steps-max-width {
+  width: 100%;
+  max-width: 600px;
+  /* Constrain width like a card */
+  border: 1px solid var(--yt-border);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  /* Subtle shadow for the container */
+}
+
+.steps-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: left;
+  color: #000;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step-item {
+  background: #EBECEF;
+  /* Light grey background like image */
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  /* Align checkmark to top */
+  gap: 16px;
+  text-align: left;
+}
+
+.step-check {
+  color: #454545;
+  /* Dark grey check */
+  margin-top: 2px;
+  min-width: 24px;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.step-desc {
+  font-size: 0.95rem;
+  color: #606060;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Footer Styles */
+.footer-section {
+  padding: 40px 20px;
+  background: var(--yt-light-gray);
+  border-top: 1px solid var(--yt-border);
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.trademark {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin: 0 5px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Notification Pop-up Clean */
+.vouch-notification {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+  border-left: 4px solid var(--yt-blue);
+  transition: all 0.4s ease;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.vouch-notification.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.vouch-notification.hidden {
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.vouch-icon {
+  color: var(--yt-blue);
+}
+
+.vouch-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.vouch-text {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.vouch-name {
+  font-weight: 500;
+}
+
+.vouch-time {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Clean Notice Styles */
+.notice-section {
+  padding: 40px 20px 80px;
+  display: flex;
+  justify-content: center;
+  background: var(--yt-white);
+}
+
+.alert-box {
+  background: #FFF4E5;
+  border: 1px solid #FFCC80;
+  padding: 24px;
+  border-radius: 4px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.alert-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  color: #E65100;
+}
+
+.alert-title {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.alert-text {
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.country-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.badge {
+  background: #fff;
+  border: 1px solid #FFCC80;
+  color: #E65100;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.alert-note {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header {
+    height: 48px;
+    padding: 0 12px;
+  }
+
+  .yt-logo-text {
+    font-size: 18px;
+  }
+
+  .sign-in-btn span,
+  .sign-in-btn svg {
+    /* Maybe simplify sign in button on mobile if needed, but its fine */
+  }
+
+  .hero-section {
+    padding: 40px 16px 30px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-description-box {
+    padding: 16px;
+    margin-bottom: 24px;
+    width: 100%;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .cta-button {
+    width: 100%;
+    /* Full width button on mobile for easier tapping */
+    max-width: 400px;
+    height: 44px;
+    line-height: 44px;
+  }
+
+  .steps-max-width {
+    padding: 16px;
+    border: none;
+    /* Remove border on mobile for cleaner look? or keep it. user said "compact". Keep it but maybe easier padding. */
+    box-shadow: none;
+  }
+
+  .step-item {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .step-title {
+    font-size: 1.1rem;
+  }
+
+  .step-desc {
+    font-size: 0.9rem;
+  }
+
+  .steps-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .step-card {
+    width: 100%;
+    max-width: 340px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Add card shadow on mobile */
+    border-radius: 8px;
+  }
+
+  .notice-section {
+    padding: 30px 16px 80px;
+  }
+
+  .alert-box {
+    padding: 16px;
+  }
+
+  .vouch-notification {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: auto;
+    border-left-width: 3px;
+    font-size: 0.85rem;
+    padding: 12px;
+  }
+}
